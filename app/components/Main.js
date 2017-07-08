@@ -5,18 +5,13 @@ import MapView from 'react-native-maps';
 import NavigationIcon from './NavegationIcon';
 import Boton from './BuscarHead';
 
-
-
-
 class Main extends Component {
 
   render() {
     const {onPress, icon} = this.props
     return (
       <View style={styles.container}>
-        <NavigationIcon
-        />
-        <Boton/>
+
         <MapView style={styles.map} initialRegion={{
           latitude: 20.697004,
           longitude: -103.374814,
@@ -33,10 +28,15 @@ class Main extends Component {
           </MapView.Marker>
         </MapView>
 
+        <NavigationIcon
+        />
+        <Boton/>
+
         <View style={{
-          flex: 1,
           flexDirection: 'row',
-          alignItems: 'flex-end'
+          alignItems: 'flex-end',
+          justifyContent: 'space-around',
+          top: -40
         }}>
           <TouchableOpacity
             style={styles.contain}
@@ -60,13 +60,12 @@ class Main extends Component {
           </TouchableOpacity>
         </View>
 
-          <View style={{
+          {/*<View style={{
                 flexDirection: 'row'}}>
               <Text style={{padding: 15}}>Home</Text>
               <Text style={{padding: 15}}>Zynga</Text>
               <Text style={{padding: 15}}>Facebook</Text>
-          </View>
-
+          </View>*/}
 
       </View>
     );
@@ -76,7 +75,7 @@ class Main extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EEE',
+    backgroundColor: '#EEE'
   },
   map: {
     left: 0,
@@ -124,8 +123,6 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     shadowOpacity: 0.12
   }
-/*justifyContent: 'center',
-alignItems: 'center',*/
 });
 
 export default Main;
