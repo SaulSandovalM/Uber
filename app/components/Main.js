@@ -1,15 +1,36 @@
 import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Image, TouchableOpacity,Text, } from 'react-native';
 import MapView from 'react-native-maps';
-
+import SideMenu from 'react-native-side-menu';
 import NavigationIcon from './NavegationIcon';
 import Boton from './BuscarHead';
+import Menu from './Menu';
 
 class Main extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+  }
+    toggle(){
+      this.setState({
+        isOpen: !this.state.isOpen
+      })
+    }
+
+  updateMenu(isOpen){
+    this.setState({isOpen})
+  }
 
   render() {
     const {onPress, icon} = this.props
     return (
+          <SideMenu
+            menu={<Menu/>}
+            isOpen={this.state.isOpen}
+            onChange={(isOpen) => this.updateMenu(isOpen)}
+            >
       <View style={styles.container}>
 
         <MapView style={styles.map} initialRegion={{
@@ -28,8 +49,11 @@ class Main extends Component {
           </MapView.Marker>
         </MapView>
 
-        <NavigationIcon
-        />
+
+          <NavigationIcon
+            toggle={this.toggle.bind(this)}
+            />
+
         <Boton/>
 
         <View style={{
@@ -68,6 +92,7 @@ class Main extends Component {
           </View>*/}
 
       </View>
+      </SideMenu>
     );
   }
 }

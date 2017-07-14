@@ -13,6 +13,8 @@
     "react-native-animatable": "^1.2.2",
     "react-native-maps": "^0.15.3",
     "react-native-router-flux": "^3.41.0",
+    "react-native-side-menu": "^0.20.3",
+    "react-native-vector-icons": "^4.2.0",
     "react-redux": "^5.0.5"
   },
   "devDependencies": {

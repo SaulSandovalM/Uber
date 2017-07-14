@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 export default class NavigationIcon extends Component {
   render() {
     return (
-      <TouchableOpacity
+      <TouchableOpacity onPress={() => props.toggle()}
         style={styles.container}
       >
         <Image
